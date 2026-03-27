@@ -6,12 +6,25 @@ import sqlite3
 class productClass:
     def __init__(self,root):
         self.root=root
+        self.setup_window()
+        self.init_variables()
+
+        self.create_product_frame()
+        self.create_search_frame()
+        self.create_product_table()
+
+        self.show()
+        self.fetch_cat_sup()
+
+    # ------ appearance functions -----
+
+    def setup_window(self):
         self.root.geometry("1100x500+320+220")
         self.root.config(bg="white")
         self.root.resizable(False,False)
         self.root.focus_force()
-        #---------------------------------------
-        #----------- variables -------------
+
+    def init_variables(self):
         self.var_cat=StringVar()
         self.cat_list=[]
         self.sup_list=[]
@@ -25,10 +38,10 @@ class productClass:
         self.var_searchby=StringVar()
         self.var_searchtxt=StringVar()
 
+    def create_product_frame(self):
         product_Frame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         product_Frame.place(x=10,y=10,width=450,height=480)
 
-        #------------ title --------------
         title=Label(product_Frame,text="Manage Product Details",font=("goudy old style",18),bg="#0f4d7d",fg="white").pack(side=TOP,fill=X)
 
         lbl_category=Label(product_Frame,text="Category",font=("goudy old style",18),bg="white").place(x=30,y=60)
@@ -54,17 +67,15 @@ class productClass:
         cmb_status.place(x=150,y=310,width=200)
         cmb_status.current(0)
 
-        #-------------- buttons -----------------
         btn_add=Button(product_Frame,text="Save",command=self.add,font=("goudy old style",15),bg="#2196f3",fg="white",cursor="hand2").place(x=10,y=400,width=100,height=40)
         btn_update=Button(product_Frame,text="Update",command=self.update,font=("goudy old style",15),bg="#4caf50",fg="white",cursor="hand2").place(x=120,y=400,width=100,height=40)
         btn_delete=Button(product_Frame,text="Delete",command=self.delete,font=("goudy old style",15),bg="#f44336",fg="white",cursor="hand2").place(x=230,y=400,width=100,height=40)
         btn_clear=Button(product_Frame,text="Clear",command=self.clear,font=("goudy old style",15),bg="#607d8b",fg="white",cursor="hand2").place(x=340,y=400,width=100,height=40)
 
-        #---------- Search Frame -------------
+    def create_search_frame(self):
         SearchFrame=LabelFrame(self.root,text="Search Product",font=("goudy old style",12,"bold"),bd=2,relief=RIDGE,bg="white")
         SearchFrame.place(x=480,y=10,width=600,height=80)
 
-        #------------ options ----------------
         cmb_search=ttk.Combobox(SearchFrame,textvariable=self.var_searchby,values=("Select","Category","Supplier","Name"),state='readonly',justify=CENTER,font=("goudy old style",15))
         cmb_search.place(x=10,y=10,width=180)
         cmb_search.current(0)
@@ -72,18 +83,19 @@ class productClass:
         txt_search=Entry(SearchFrame,textvariable=self.var_searchtxt,font=("goudy old style",15),bg="lightyellow").place(x=200,y=10)
         btn_search=Button(SearchFrame,text="Search",command=self.search,font=("goudy old style",15),bg="#4caf50",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
 
-        #------------ product details -------------
+    def create_product_table(self):
         product_frame=Frame(self.root,bd=3,relief=RIDGE)
         product_frame.place(x=480,y=100,width=600,height=390)
 
         scrolly=Scrollbar(product_frame,orient=VERTICAL)
-        scrollx=Scrollbar(product_frame,orient=HORIZONTAL)\
-        
+        scrollx=Scrollbar(product_frame,orient=HORIZONTAL)
+
         self.ProductTable=ttk.Treeview(product_frame,columns=("pid","Category","Supplier","name","price","qty","status"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
         scrollx.pack(side=BOTTOM,fill=X)
         scrolly.pack(side=RIGHT,fill=Y)
         scrollx.config(command=self.ProductTable.xview)
         scrolly.config(command=self.ProductTable.yview)
+
         self.ProductTable.heading("pid",text="P ID")
         self.ProductTable.heading("Category",text="Category")
         self.ProductTable.heading("Supplier",text="Suppler")
@@ -91,6 +103,7 @@ class productClass:
         self.ProductTable.heading("price",text="Price")
         self.ProductTable.heading("qty",text="Quantity")
         self.ProductTable.heading("status",text="Status")
+
         self.ProductTable["show"]="headings"
         self.ProductTable.column("pid",width=90)
         self.ProductTable.column("Category",width=100)
@@ -99,11 +112,9 @@ class productClass:
         self.ProductTable.column("price",width=100)
         self.ProductTable.column("qty",width=100)
         self.ProductTable.column("status",width=100)
-        
+
         self.ProductTable.pack(fill=BOTH,expand=1)
         self.ProductTable.bind("<ButtonRelease-1>",self.get_data)
-        self.show()
-        self.fetch_cat_sup()
 #-----------------------------------------------------------------------------------------------------
     def fetch_cat_sup(self):
         self.cat_list.append("Empty")
@@ -127,8 +138,6 @@ class productClass:
                     self.sup_list.append(i[0])
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
-
-    
     
     def add(self):
         con=sqlite3.connect(database=r'ims.db')
