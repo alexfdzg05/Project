@@ -14,6 +14,7 @@ os.makedirs(BILL_DIR, exist_ok=True)
 
 class salesClass:
     def __init__(self, root):
+        #------ appearance functions -----
         self.root = root
         self.root.geometry("1100x500+320+220")
         self.root.config(bg="white")
@@ -23,7 +24,16 @@ class salesClass:
         self.blll_list = []
         self.var_invoice = StringVar()
 
-        # --------------- title ---------------------
+        self.setup_title()
+        self.setup_invoice_search()
+        self.setup_sales_list()
+        self.setup_bill_area()
+        self.setup_bill_image()
+        self.show()
+
+    # ----------------- appearance functions -----------------
+
+    def setup_title(self):
         lbl_title = Label(
             self.root,
             text="View Customer Bills",
@@ -34,6 +44,7 @@ class salesClass:
             relief=RIDGE
         ).pack(side=TOP, fill=X, padx=10, pady=20)
 
+    def setup_invoice_search(self):
         lbl_invoice = Label(self.root, text="Invoice No.", font=("times new roman", 15), bg="white")
         lbl_invoice.place(x=50, y=100)
 
@@ -52,7 +63,7 @@ class salesClass:
             bg="lightgray", cursor="hand2"
         ).place(x=490, y=100, width=120, height=28)
 
-        # ----------------- bill list -------------------
+    def setup_sales_list(self):
         sales_Frame = Frame(self.root, bd=3, relief=RIDGE)
         sales_Frame.place(x=50, y=140, width=200, height=330)
 
@@ -66,7 +77,7 @@ class salesClass:
         self.Sales_List.pack(fill=BOTH, expand=1)
         self.Sales_List.bind("<ButtonRelease-1>", self.get_data)
 
-        # --------------- bill area ----------------------
+    def setup_bill_area(self):
         bill_Frame = Frame(self.root, bd=3, relief=RIDGE)
         bill_Frame.place(x=280, y=140, width=410, height=330)
 
@@ -81,7 +92,7 @@ class salesClass:
         scrolly2.config(command=self.bill_area.yview)
         self.bill_area.pack(fill=BOTH, expand=1)
 
-        # ------------- image -----------------
+    def setup_bill_image(self):
         image_path = os.path.join(IMAGE_DIR, "cat2.jpg")
         self.bill_photo = Image.open(image_path)
         self.bill_photo = self.bill_photo.resize((450, 300))
@@ -89,9 +100,6 @@ class salesClass:
 
         lbl_image = Label(self.root, image=self.bill_photo, bd=0)
         lbl_image.place(x=700, y=110)
-
-        self.show()
-
     # -------------------------------------------------------
     def show(self):
         del self.blll_list[:]
