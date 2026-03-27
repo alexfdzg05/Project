@@ -8,6 +8,7 @@ import tempfile
 
 class billClass:
     def __init__(self,root):
+        #------ appearance functions -----
         self.root=root
         self.root.geometry("1350x700+110+80")
         self.root.resizable(False,False)
@@ -15,18 +16,14 @@ class billClass:
         self.cart_list=[]
         self.chk_print=0
 
-        #------------- title --------------
         self.icon_title = PhotoImage(file="Inventory-Management-System/images/logo1.png")
         title=Label(self.root,text="Inventory Management System",image=self.icon_title,compound=LEFT,font=("times new roman",40,"bold"),bg="#010c48",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
 
-        #------------ logout button -----------
         btn_logout=Button(self.root,text="Logout",font=("times new roman",15,"bold"),bg="yellow",cursor="hand2").place(x=1150,y=10,height=50,width=150)
 
-        #------------ clock -----------------
         self.lbl_clock=Label(self.root,text="Welcome to Inventory Management System\t\t Date: DD:MM:YYYY\t\t Time: HH:MM:SS",font=("times new roman",15),bg="#4d636d",fg="white")
         self.lbl_clock.place(x=0,y=70,relwidth=1,height=30)
 
-        #-------------- product frame -----------------
         ProductFrame1=Frame(self.root,bd=4,relief=RIDGE,bg="white")
         ProductFrame1.place(x=6,y=110,width=410,height=550)
 
@@ -48,7 +45,7 @@ class billClass:
         ProductFrame3.place(x=2,y=140,width=398,height=375)
 
         scrolly=Scrollbar(ProductFrame3,orient=VERTICAL)
-        scrollx=Scrollbar(ProductFrame3,orient=HORIZONTAL)\
+        scrollx=Scrollbar(ProductFrame3,orient=HORIZONTAL)
         
         self.product_Table=ttk.Treeview(ProductFrame3,columns=("pid","name","price","qty","status"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
         scrollx.pack(side=BOTTOM,fill=X)
@@ -72,7 +69,6 @@ class billClass:
 
         lbl_note=Label(ProductFrame1,text="Note: 'Enter 0 Quantity to remove product from the Cart'",font=("goudy old style",12),anchor="w",bg="white",fg="red").pack(side=BOTTOM,fill=X)
 
-        #-------------- customer frame ---------------
         self.var_cname=StringVar()
         self.var_contact=StringVar()
 
@@ -90,7 +86,6 @@ class billClass:
         Cal_Cart_Frame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         Cal_Cart_Frame.place(x=420,y=190,width=530,height=360)
 
-        #--------------- calculator frame ---------------------
         self.var_cal_input=StringVar()
 
         Cal_Frame=Frame(Cal_Cart_Frame,bd=9,relief=RIDGE,bg="white")
@@ -119,14 +114,13 @@ class billClass:
         btn_eq=Button(Cal_Frame,text="=",font=('arial',15,'bold'),command=self.perform_cal,bd=5,width=4,pady=15,cursor="hand2").grid(row=4,column=2)
         btn_div=Button(Cal_Frame,text="/",font=('arial',15,'bold'),command=lambda:self.get_input('/'),bd=5,width=4,pady=15,cursor="hand2").grid(row=4,column=3)
 
-        #------------------ cart frame --------------------
         Cart_Frame=Frame(Cal_Cart_Frame,bd=3,relief=RIDGE)
         Cart_Frame.place(x=280,y=8,width=245,height=342)
         self.cartTitle=Label(Cart_Frame,text="Cart \t Total Products: [0]",font=("goudy old style",15),bg="lightgray")
         self.cartTitle.pack(side=TOP,fill=X)
 
         scrolly=Scrollbar(Cart_Frame,orient=VERTICAL)
-        scrollx=Scrollbar(Cart_Frame,orient=HORIZONTAL)\
+        scrollx=Scrollbar(Cart_Frame,orient=HORIZONTAL)
         
         self.CartTable=ttk.Treeview(Cart_Frame,columns=("pid","name","price","qty"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
         scrollx.pack(side=BOTTOM,fill=X)
@@ -145,7 +139,6 @@ class billClass:
         self.CartTable.pack(fill=BOTH,expand=1)
         self.CartTable.bind("<ButtonRelease-1>",self.get_data_cart)
 
-        #-------------- add cart widgets frame ---------------
         self.var_pid=StringVar()
         self.var_pname=StringVar()
         self.var_price=StringVar()
@@ -169,8 +162,7 @@ class billClass:
 
         btn_clear_cart=Button(Add_CartWidgets_Frame,command=self.clear_cart,text="Clear",font=("times new roman",15,"bold"),bg="lightgray",cursor="hand2").place(x=180,y=70,width=150,height=30)
         btn_add_cart=Button(Add_CartWidgets_Frame,command=self.add_update_cart,text="Add | Update",font=("times new roman",15,"bold"),bg="orange",cursor="hand2").place(x=340,y=70,width=180,height=30)
-        
-        #------------------- billing area -------------------
+
         billFrame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         billFrame.place(x=953,y=110,width=400,height=410)
 
@@ -182,7 +174,6 @@ class billClass:
         self.txt_bill_area.pack(fill=BOTH,expand=1)
         scrolly.config(command=self.txt_bill_area.yview)
 
-        #------------------- billing buttons -----------------------
         billMenuFrame=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         billMenuFrame.place(x=953,y=520,width=400,height=140)
 
@@ -205,7 +196,6 @@ class billClass:
         btn_generate.place(x=246,y=80,width=160,height=50)
 
         self.show()
-        #self.bill_top()
         self.update_date_time()
 #---------------------- all functions ------------------------------
     def get_input(self,num):
