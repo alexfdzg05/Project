@@ -90,31 +90,31 @@ class productClass:
         scrolly=Scrollbar(product_frame,orient=VERTICAL)
         scrollx=Scrollbar(product_frame,orient=HORIZONTAL)
 
-        self.ProductTable=ttk.Treeview(product_frame,columns=("pid","Category","Supplier","name","price","qty","status"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
+        self.product_table=ttk.Treeview(product_frame,columns=("pid","Category","Supplier","name","price","qty","status"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
         scrollx.pack(side=BOTTOM,fill=X)
         scrolly.pack(side=RIGHT,fill=Y)
-        scrollx.config(command=self.ProductTable.xview)
-        scrolly.config(command=self.ProductTable.yview)
+        scrollx.config(command=self.product_table.xview)
+        scrolly.config(command=self.product_table.yview)
 
-        self.ProductTable.heading("pid",text="P ID")
-        self.ProductTable.heading("Category",text="Category")
-        self.ProductTable.heading("Supplier",text="Suppler")
-        self.ProductTable.heading("name",text="Name")
-        self.ProductTable.heading("price",text="Price")
-        self.ProductTable.heading("qty",text="Quantity")
-        self.ProductTable.heading("status",text="Status")
+        self.product_table.heading("pid",text="P ID")
+        self.product_table.heading("Category",text="Category")
+        self.product_table.heading("Supplier",text="Suppler")
+        self.product_table.heading("name",text="Name")
+        self.product_table.heading("price",text="Price")
+        self.product_table.heading("qty",text="Quantity")
+        self.product_table.heading("status",text="Status")
 
-        self.ProductTable["show"]="headings"
-        self.ProductTable.column("pid",width=90)
-        self.ProductTable.column("Category",width=100)
-        self.ProductTable.column("Supplier",width=100)
-        self.ProductTable.column("name",width=100)
-        self.ProductTable.column("price",width=100)
-        self.ProductTable.column("qty",width=100)
-        self.ProductTable.column("status",width=100)
+        self.product_table["show"]="headings"
+        self.product_table.column("pid",width=90)
+        self.product_table.column("Category",width=100)
+        self.product_table.column("Supplier",width=100)
+        self.product_table.column("name",width=100)
+        self.product_table.column("price",width=100)
+        self.product_table.column("qty",width=100)
+        self.product_table.column("status",width=100)
 
-        self.ProductTable.pack(fill=BOTH,expand=1)
-        self.ProductTable.bind("<ButtonRelease-1>",self.get_data)
+        self.product_table.pack(fill=BOTH,expand=1)
+        self.product_table.bind("<ButtonRelease-1>",self.get_data)
 #-----------------------------------------------------------------------------------------------------
     def fetch_cat_sup(self):
         self.cat_list.append("Empty")
@@ -173,17 +173,17 @@ class productClass:
         try:
             cur.execute("select * from product")
             rows=cur.fetchall()
-            self.ProductTable.delete(*self.ProductTable.get_children())
+            self.product_table.delete(*self.product_table.get_children())
             for row in rows:
-                self.ProductTable.insert('',END,values=row)
+                self.product_table.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
         finally:
             con.close()
 
     def get_data(self,ev):
-        f=self.ProductTable.focus()
-        content=(self.ProductTable.item(f))
+        f=self.product_table.focus()
+        content=(self.product_table.item(f))
         row=content['values']
         self.var_pid.set(row[0])
         self.var_cat.set(row[1])
@@ -266,9 +266,9 @@ class productClass:
                 cur.execute("select * from product where "+self.var_searchby.get()+" LIKE '%"+self.var_searchtxt.get()+"%'")
                 rows=cur.fetchall()
                 if len(rows)!=0:
-                    self.ProductTable.delete(*self.ProductTable.get_children())
+                    self.product_table.delete(*self.product_table.get_children())
                     for row in rows:
-                        self.ProductTable.insert('',END,values=row)
+                        self.product_table.insert('',END,values=row)
                 else:
                     messagebox.showerror("Error","No record found!!!",parent=self.root)
         except Exception as ex:

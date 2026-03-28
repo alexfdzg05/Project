@@ -43,7 +43,7 @@ class IMS:
 
     def title(self, root):
         self.icon_title = PhotoImage(file=os.path.join(IMAGE_DIR, "logo1.png"))
-        title = Label(
+        title_label = Label(
             self.root,
             text="Inventory Management System",
             image=self.icon_title,
@@ -63,7 +63,6 @@ class IMS:
         ).place(x=1150, y=10, height=50, width=150)
 
     def clock(self, root):
-        
         self.lbl_clock = Label(
             self.root,
             text="Welcome to Inventory Management System\t\t Date: DD:MM:YYYY\t\t Time: HH:MM:SS",
@@ -73,18 +72,18 @@ class IMS:
         self.lbl_clock.place(x=0, y=70, relwidth=1, height=30)
 
     def left_menu(self, root):
-        self.MenuLogo = Image.open(os.path.join(IMAGE_DIR, "menu_im.png"))
-        self.MenuLogo = self.MenuLogo.resize((200, 200))
-        self.MenuLogo = ImageTk.PhotoImage(self.MenuLogo)
+        self.menu_logo = Image.open(os.path.join(IMAGE_DIR, "menu_im.png"))
+        self.menu_logo = self.menu_logo.resize((200, 200))
+        self.menu_logo = ImageTk.PhotoImage(self.menu_logo)
 
-        LeftMenu = Frame(self.root, bd=2, relief=RIDGE, bg="white")
-        LeftMenu.place(x=0, y=102, width=200, height=565)
+        left_menu_frame = Frame(self.root, bd=2, relief=RIDGE, bg="white")
+        left_menu_frame.place(x=0, y=102, width=200, height=565)
 
-        lbl_menuLogo = Label(LeftMenu, image=self.MenuLogo)
-        lbl_menuLogo.pack(side=TOP, fill=X)
+        lbl_menu_logo = Label(left_menu_frame, image=self.menu_logo)
+        lbl_menu_logo.pack(side=TOP, fill=X)
 
         lbl_menu = Label(
-            LeftMenu, text="Menu",
+            left_menu_frame, text="Menu",
             font=("times new roman", 20),
             bg="#009688"
         ).pack(side=TOP, fill=X)
@@ -92,7 +91,7 @@ class IMS:
         self.icon_side = PhotoImage(file=os.path.join(IMAGE_DIR, "side.png"))
 
         btn_employee = Button(
-            LeftMenu, text="Employee", command=self.employee,
+            left_menu_frame, text="Employee", command=self.employee,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
             font=("times new roman", 20, "bold"),
@@ -100,7 +99,7 @@ class IMS:
         ).pack(side=TOP, fill=X)
 
         btn_supplier = Button(
-            LeftMenu, text="Supplier", command=self.supplier,
+            left_menu_frame, text="Supplier", command=self.supplier,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
             font=("times new roman", 20, "bold"),
@@ -108,7 +107,7 @@ class IMS:
         ).pack(side=TOP, fill=X)
 
         btn_category = Button(
-            LeftMenu, text="Category", command=self.category,
+            left_menu_frame, text="Category", command=self.category,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
             font=("times new roman", 20, "bold"),
@@ -116,7 +115,7 @@ class IMS:
         ).pack(side=TOP, fill=X)
 
         btn_product = Button(
-            LeftMenu, text="Products", command=self.product,
+            left_menu_frame, text="Products", command=self.product,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
             font=("times new roman", 20, "bold"),
@@ -124,7 +123,7 @@ class IMS:
         ).pack(side=TOP, fill=X)
 
         btn_sales = Button(
-            LeftMenu, text="Sales", command=self.sales,
+            left_menu_frame, text="Sales", command=self.sales,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
             font=("times new roman", 20, "bold"),
@@ -132,7 +131,7 @@ class IMS:
         ).pack(side=TOP, fill=X)
 
         btn_exit = Button(
-            LeftMenu, text="Exit",
+            left_menu_frame, text="Exit",
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
             font=("times new roman", 20, "bold"),
@@ -230,10 +229,10 @@ class IMS:
             bill = len(os.listdir(BILL_DIR))
             self.lbl_sales.config(text=f"Total Sales\n[ {bill} ]")
 
-            time_ = time.strftime("%I:%M:%S")
-            date_ = time.strftime("%d-%m-%Y")
+            time_str = time.strftime("%I:%M:%S")
+            date_str = time.strftime("%d-%m-%Y")
             self.lbl_clock.config(
-                text=f"Welcome to Inventory Management System\t\t Date: {date_}\t\t Time: {time_}"
+                text=f"Welcome to Inventory Management System\t\t Date: {date_str}\t\t Time: {time_str}"
             )
 
             self.lbl_clock.after(200, self.update_content)
@@ -244,8 +243,8 @@ class IMS:
             con.close()
 
     def connect_database(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        con = sqlite3.connect(database=r'ims.db')
+        cur = con.cursor()
         return cur, con
 
 if __name__ == "__main__":

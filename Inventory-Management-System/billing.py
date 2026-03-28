@@ -122,22 +122,22 @@ class billClass:
         scrolly=Scrollbar(Cart_Frame,orient=VERTICAL)
         scrollx=Scrollbar(Cart_Frame,orient=HORIZONTAL)
         
-        self.CartTable=ttk.Treeview(Cart_Frame,columns=("pid","name","price","qty"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
+        self.cart_table=ttk.Treeview(Cart_Frame,columns=("pid","name","price","qty"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
         scrollx.pack(side=BOTTOM,fill=X)
         scrolly.pack(side=RIGHT,fill=Y)
-        scrollx.config(command=self.CartTable.xview)
-        scrolly.config(command=self.CartTable.yview)
-        self.CartTable.heading("pid",text="P ID")
-        self.CartTable.heading("name",text="Name")
-        self.CartTable.heading("price",text="Price")
-        self.CartTable.heading("qty",text="Quantity")
-        self.CartTable["show"]="headings"
-        self.CartTable.column("pid",width=40)
-        self.CartTable.column("name",width=100)
-        self.CartTable.column("price",width=90)
-        self.CartTable.column("qty",width=30)
-        self.CartTable.pack(fill=BOTH,expand=1)
-        self.CartTable.bind("<ButtonRelease-1>",self.get_data_cart)
+        scrollx.config(command=self.cart_table.xview)
+        scrolly.config(command=self.cart_table.yview)
+        self.cart_table.heading("pid",text="P ID")
+        self.cart_table.heading("name",text="Name")
+        self.cart_table.heading("price",text="Price")
+        self.cart_table.heading("qty",text="Quantity")
+        self.cart_table["show"]="headings"
+        self.cart_table.column("pid",width=40)
+        self.cart_table.column("name",width=100)
+        self.cart_table.column("price",width=90)
+        self.cart_table.column("qty",width=30)
+        self.cart_table.pack(fill=BOTH,expand=1)
+        self.cart_table.bind("<ButtonRelease-1>",self.get_data_cart)
 
         self.var_pid=StringVar()
         self.var_pname=StringVar()
@@ -253,8 +253,8 @@ class billClass:
         self.var_qty.set('1')
     
     def get_data_cart(self,ev):
-        f=self.CartTable.focus()
-        content=(self.CartTable.item(f))
+        f=self.cart_table.focus()
+        content=(self.cart_table.item(f))
         row=content['values']
         self.var_pid.set(row[0])
         self.var_pname.set(row[1])
@@ -310,9 +310,9 @@ class billClass:
 
     def show_cart(self):
         try:
-            self.CartTable.delete(*self.CartTable.get_children())
+            self.cart_table.delete(*self.cart_table.get_children())
             for row in self.cart_list:
-                self.CartTable.insert('',END,values=row)
+                self.cart_table.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
 
