@@ -36,11 +36,11 @@ class categoryClass:
         ).pack(side=TOP, fill=X, padx=10, pady=20)
 
     def setup_input_buttons(self):
-        lbl_mame = Label(self.root, text="Enter Category Name", font=("goudy old style", 30), bg="white")
-        lbl_mame.place(x=50, y=100)
+        lbl_name = Label(self.root, text="Enter Category Name", font=("goudy old style", 30), bg="white")
+        lbl_name.place(x=50, y=100)
 
-        txt_mame = Entry(self.root, textvariable=self.var_name, bg="lightyellow", font=("goudy old style", 18))
-        txt_mame.place(x=50, y=170, width=300)
+        txt_name = Entry(self.root, textvariable=self.var_name, bg="lightyellow", font=("goudy old style", 18))
+        txt_name.place(x=50, y=170, width=300)
 
         btn_add = Button(self.root, text="ADD", command=self.add, font=("goudy old style", 15), bg="#4caf50", fg="white", cursor="hand2")
         btn_add.place(x=360, y=170, width=150, height=30)
