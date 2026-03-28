@@ -83,8 +83,7 @@ class categoryClass:
         self.lbl_im2.place(x=580, y=220)
 #----------------------------------------------------------------------------------
     def add(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_name.get()=="":
                 messagebox.showerror("Error","Category Name must be required",parent=self.root)
@@ -103,10 +102,11 @@ class categoryClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def show(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             cur.execute("select * from category")
             rows=cur.fetchall()
@@ -115,8 +115,9 @@ class categoryClass:
                 self.CategoryTable.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
-    
     def clear(self):
         self.var_name.set("")
         self.show()
@@ -129,8 +130,7 @@ class categoryClass:
         self.var_name.set(row[1])
     
     def delete(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_cat_id.get()=="":
                 messagebox.showerror("Error","Category name must be required",parent=self.root)
@@ -150,8 +150,13 @@ class categoryClass:
                         self.var_name.set("")
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
-
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con
 
 if __name__=="__main__":
     root=Tk()

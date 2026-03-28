@@ -141,6 +141,10 @@ class salesClass:
         self.show()
         self.bill_area.delete('1.0', END)
 
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con
 
 if __name__ == "__main__":
     root = Tk()

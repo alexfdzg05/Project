@@ -265,8 +265,7 @@ class employeeClass:
         self.show()
 #-----------------------------------------------------------------------------------------------------
     def add(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_emp_id.get()=="":
                 messagebox.showerror("Error","Employee ID must be required",parent=self.root)
@@ -295,10 +294,11 @@ class employeeClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def show(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             cur.execute("select * from employee")
             rows=cur.fetchall()
@@ -307,6 +307,8 @@ class employeeClass:
                 self.EmployeeTable.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def get_data(self,ev):
         f=self.EmployeeTable.focus()
@@ -326,8 +328,7 @@ class employeeClass:
         self.var_salary.set(row[10])
 
     def update(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_emp_id.get()=="":
                 messagebox.showerror("Error","Employee ID must be required",parent=self.root)
@@ -355,10 +356,11 @@ class employeeClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def delete(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_emp_id.get()=="":
                 messagebox.showerror("Error","Employee ID must be required",parent=self.root)
@@ -376,6 +378,8 @@ class employeeClass:
                         self.clear()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def clear(self):
         self.var_emp_id.set("")
@@ -394,8 +398,7 @@ class employeeClass:
         self.show()
 
     def search(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_searchby.get()=="Select":
                 messagebox.showerror("Error","Select Search By option",parent=self.root)
@@ -416,7 +419,13 @@ class employeeClass:
                     messagebox.showerror("Error","No record found!!!",parent=self.root)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con    
 
 if __name__=="__main__":
     root=Tk()

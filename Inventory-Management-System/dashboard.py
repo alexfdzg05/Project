@@ -208,8 +208,7 @@ class IMS:
         self.new_obj = salesClass(self.new_win)
 
     def update_content(self):
-        con = sqlite3.connect(database=os.path.join(BASE_DIR, 'ims.db'))
-        cur = con.cursor()
+        cur, con = self.connect_database()
 
         try:
             cur.execute("select * from product")
@@ -241,7 +240,13 @@ class IMS:
 
         except Exception as ex:
             messagebox.showerror("Error", f"Error due to : {str(ex)}", parent=self.root)
+        finally:
+            con.close()
 
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con
 
 if __name__ == "__main__":
     root = Tk()

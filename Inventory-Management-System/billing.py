@@ -210,8 +210,7 @@ class billClass:
         self.var_cal_input.set(eval(result))
 
     def show(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             cur.execute("select pid,name,price,qty,status from product where status='Active'")
             rows=cur.fetchall()
@@ -220,10 +219,11 @@ class billClass:
                 self.product_Table.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def search(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_search.get()=="":
                 messagebox.showerror("Error","Search input should be required",parent=self.root)
@@ -238,6 +238,8 @@ class billClass:
                     messagebox.showerror("Error","No record found!!!",parent=self.root)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def get_data(self,ev):
         f=self.product_Table.focus()
@@ -360,8 +362,7 @@ class billClass:
         self.txt_bill_area.insert(END,bill_bottom_temp)
 
     def bill_middle(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             for row in self.cart_list:
                 pid=row[0]
@@ -420,6 +421,12 @@ class billClass:
             os.startfile(new_file,'print')
         else:
             messagebox.showinfo("Print","Please generate bill to print the receipt",parent=self.root)
+
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con
+        
 
 if __name__=="__main__":
     root=Tk()

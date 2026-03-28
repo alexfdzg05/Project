@@ -170,8 +170,7 @@ class supplierClass:
         self.show()
 #-----------------------------------------------------------------------------------------------------
     def add(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_sup_invoice.get()=="":
                 messagebox.showerror("Error","Invoice must be required",parent=self.root)
@@ -193,10 +192,11 @@ class supplierClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def show(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             cur.execute("select * from supplier")
             rows=cur.fetchall()
@@ -205,6 +205,8 @@ class supplierClass:
                 self.SupplierTable.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def get_data(self,ev):
         f=self.SupplierTable.focus()
@@ -217,8 +219,7 @@ class supplierClass:
         self.txt_desc.insert(END,row[3])
 
     def update(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_sup_invoice.get()=="":
                 messagebox.showerror("Error","Invoice must be required",parent=self.root)
@@ -239,10 +240,11 @@ class supplierClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def delete(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_sup_invoice.get()=="":
                 messagebox.showerror("Error","Invoice No. must be required",parent=self.root)
@@ -260,6 +262,8 @@ class supplierClass:
                         self.clear()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()    
 
     def clear(self):
         self.var_sup_invoice.set("")
@@ -270,8 +274,7 @@ class supplierClass:
         self.show()
 
     def search(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_searchtxt.get()=="":
                 messagebox.showerror("Error","Invoice No. should be required",parent=self.root)
@@ -285,7 +288,13 @@ class supplierClass:
                     messagebox.showerror("Error","No record found!!!",parent=self.root)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con
 
 if __name__=="__main__":
     root=Tk()

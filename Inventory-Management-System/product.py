@@ -119,8 +119,7 @@ class productClass:
     def fetch_cat_sup(self):
         self.cat_list.append("Empty")
         self.sup_list.append("Empty")
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             cur.execute("select name from category")
             cat=cur.fetchall()
@@ -138,10 +137,11 @@ class productClass:
                     self.sup_list.append(i[0])
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:        
+            con.close()
     
     def add(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_cat.get()=="Select" or self.var_cat.get()=="Empty" or self.var_sup=="Select" or self.var_sup=="Empty":
                 messagebox.showerror("Error","All fields are required",parent=self.root)
@@ -165,10 +165,11 @@ class productClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def show(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             cur.execute("select * from product")
             rows=cur.fetchall()
@@ -177,6 +178,8 @@ class productClass:
                 self.ProductTable.insert('',END,values=row)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def get_data(self,ev):
         f=self.ProductTable.focus()
@@ -191,8 +194,7 @@ class productClass:
         self.var_status.set(row[6])
 
     def update(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_pid.get()=="":
                 messagebox.showerror("Error","Please select product from list",parent=self.root)
@@ -216,10 +218,11 @@ class productClass:
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()    
 
     def delete(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_pid.get()=="":
                 messagebox.showerror("Error","Select Product from the list",parent=self.root)
@@ -237,6 +240,8 @@ class productClass:
                         self.clear()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
 
     def clear(self):
         self.var_cat.set("Select")
@@ -250,10 +255,8 @@ class productClass:
         self.var_searchtxt.set("")
         self.show()
 
-    
     def search(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
+        cur, con = self.connect_database()
         try:
             if self.var_searchby.get()=="Select":
                 messagebox.showerror("Error","Select Search By option",parent=self.root)
@@ -270,6 +273,13 @@ class productClass:
                     messagebox.showerror("Error","No record found!!!",parent=self.root)
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to : {str(ex)}")
+        finally:
+            con.close()
+
+    def connect_database(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        return cur, con
 
 if __name__=="__main__":
     root=Tk()
