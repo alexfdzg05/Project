@@ -21,7 +21,7 @@ class salesClass:
         self.root.resizable(False, False)
         self.root.focus_force()
 
-        self.blll_list = []
+        self.bill_list = []
         self.var_invoice = StringVar()
 
         self.setup_title()
@@ -102,20 +102,20 @@ class salesClass:
         lbl_image.place(x=700, y=110)
     # -------------------------------------------------------
     def show(self):
-        del self.blll_list[:]
+        del self.bill_list[:]
         self.Sales_List.delete(0, END)
 
         for i in os.listdir(BILL_DIR):
             if i.split('.')[-1] == 'txt':
                 self.Sales_List.insert(END, i)
-                self.blll_list.append(i.split('.')[0])
+                self.bill_list.append(i.split('.')[0])
 
     def get_data(self, ev):
-        index_ = self.Sales_List.curselection()
-        if not index_:
+        index = self.Sales_List.curselection()
+        if not index:
             return
 
-        file_name = self.Sales_List.get(index_)
+        file_name = self.Sales_List.get(index)
         self.bill_area.delete('1.0', END)
 
         file_path = os.path.join(BILL_DIR, file_name)
@@ -127,7 +127,7 @@ class salesClass:
         if self.var_invoice.get() == "":
             messagebox.showerror("Error", "Invoice no. should be required", parent=self.root)
         else:
-            if self.var_invoice.get() in self.blll_list:
+            if self.var_invoice.get() in self.bill_list:
                 file_path = os.path.join(BILL_DIR, f"{self.var_invoice.get()}.txt")
                 self.bill_area.delete('1.0', END)
 
@@ -140,11 +140,6 @@ class salesClass:
     def clear(self):
         self.show()
         self.bill_area.delete('1.0', END)
-
-    def connect_database(self):
-        con=sqlite3.connect(database=r'ims.db')
-        cur=con.cursor()
-        return cur, con
 
 if __name__ == "__main__":
     root = Tk()
