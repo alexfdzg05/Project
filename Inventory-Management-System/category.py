@@ -25,7 +25,7 @@ class categoryClass:
         self.var_name = StringVar()
 
     def setup_title(self):
-        lbl_title = Label(
+        label_title = Label(
             self.root,
             text="Manage Product Category",
             font=("goudy old style", 30),
@@ -36,17 +36,17 @@ class categoryClass:
         ).pack(side=TOP, fill=X, padx=10, pady=20)
 
     def setup_input_buttons(self):
-        lbl_name = Label(self.root, text="Enter Category Name", font=("goudy old style", 30), bg="white")
-        lbl_name.place(x=50, y=100)
+        label_name = Label(self.root, text="Enter Category Name", font=("goudy old style", 30), bg="white")
+        label_name.place(x=50, y=100)
 
         txt_name = Entry(self.root, textvariable=self.var_name, bg="lightyellow", font=("goudy old style", 18))
         txt_name.place(x=50, y=170, width=300)
 
-        btn_add = Button(self.root, text="ADD", command=self.add, font=("goudy old style", 15), bg="#4caf50", fg="white", cursor="hand2")
-        btn_add.place(x=360, y=170, width=150, height=30)
+        button_add = Button(self.root, text="ADD", command=self.add, font=("goudy old style", 15), bg="#4caf50", fg="white", cursor="hand2")
+        button_add.place(x=360, y=170, width=150, height=30)
 
-        btn_delete = Button(self.root, text="Delete", command=self.delete, font=("goudy old style", 15), bg="red", fg="white", cursor="hand2")
-        btn_delete.place(x=520, y=170, width=150, height=30)
+        button_delete = Button(self.root, text="Delete", command=self.delete, font=("goudy old style", 15), bg="red", fg="white", cursor="hand2")
+        button_delete.place(x=520, y=170, width=150, height=30)
 
     def setup_category_table(self):
         cat_frame = Frame(self.root, bd=3, relief=RIDGE)
@@ -73,14 +73,14 @@ class categoryClass:
         self.im1 = Image.open("Inventory-Management-System/images/cat.jpg")
         self.im1 = self.im1.resize((500, 250))
         self.im1 = ImageTk.PhotoImage(self.im1)
-        self.lbl_im1 = Label(self.root, image=self.im1, bd=2, relief=RAISED)
-        self.lbl_im1.place(x=50, y=220)
+        self.label_im1 = Label(self.root, image=self.im1, bd=2, relief=RAISED)
+        self.label_im1.place(x=50, y=220)
 
         self.im2 = Image.open("Inventory-Management-System/images/category.jpg")
         self.im2 = self.im2.resize((500, 250))
         self.im2 = ImageTk.PhotoImage(self.im2)
-        self.lbl_im2 = Label(self.root, image=self.im2, bd=2, relief=RAISED)
-        self.lbl_im2.place(x=580, y=220)
+        self.label_im2 = Label(self.root, image=self.im2, bd=2, relief=RAISED)
+        self.label_im2.place(x=580, y=220)
 #----------------------------------------------------------------------------------
     def add(self):
         cur, con = self.connect_database()

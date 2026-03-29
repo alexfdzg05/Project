@@ -56,20 +56,20 @@ class IMS:
         ).place(x=0, y=0, relwidth=1, height=70)
 
     def logout_button(self, root):
-        btn_logout = Button(
+        button_logout = Button(
             self.root, text="Logout",
             font=("times new roman", 15, "bold"),
             bg="yellow", cursor="hand2"
         ).place(x=1150, y=10, height=50, width=150)
 
     def clock(self, root):
-        self.lbl_clock = Label(
+        self.label_clock = Label(
             self.root,
             text="Welcome to Inventory Management System\t\t Date: DD:MM:YYYY\t\t Time: HH:MM:SS",
             font=("times new roman", 15),
             bg="#4d636d", fg="white"
         )
-        self.lbl_clock.place(x=0, y=70, relwidth=1, height=30)
+        self.label_clock.place(x=0, y=70, relwidth=1, height=30)
 
     def left_menu(self, root):
         self.menu_logo = Image.open(os.path.join(IMAGE_DIR, "menu_im.png"))
@@ -79,10 +79,10 @@ class IMS:
         left_menu_frame = Frame(self.root, bd=2, relief=RIDGE, bg="white")
         left_menu_frame.place(x=0, y=102, width=200, height=565)
 
-        lbl_menu_logo = Label(left_menu_frame, image=self.menu_logo)
-        lbl_menu_logo.pack(side=TOP, fill=X)
+        label_menu_logo = Label(left_menu_frame, image=self.menu_logo)
+        label_menu_logo.pack(side=TOP, fill=X)
 
-        lbl_menu = Label(
+        label_menu = Label(
             left_menu_frame, text="Menu",
             font=("times new roman", 20),
             bg="#009688"
@@ -90,7 +90,7 @@ class IMS:
 
         self.icon_side = PhotoImage(file=os.path.join(IMAGE_DIR, "side.png"))
 
-        btn_employee = Button(
+        button_employee = Button(
             left_menu_frame, text="Employee", command=self.employee,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
@@ -98,7 +98,7 @@ class IMS:
             bg="white", bd=3, cursor="hand2"
         ).pack(side=TOP, fill=X)
 
-        btn_supplier = Button(
+        button_supplier = Button(
             left_menu_frame, text="Supplier", command=self.supplier,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
@@ -106,7 +106,7 @@ class IMS:
             bg="white", bd=3, cursor="hand2"
         ).pack(side=TOP, fill=X)
 
-        btn_category = Button(
+        button_category = Button(
             left_menu_frame, text="Category", command=self.category,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
@@ -114,7 +114,7 @@ class IMS:
             bg="white", bd=3, cursor="hand2"
         ).pack(side=TOP, fill=X)
 
-        btn_product = Button(
+        button_product = Button(
             left_menu_frame, text="Products", command=self.product,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
@@ -122,7 +122,7 @@ class IMS:
             bg="white", bd=3, cursor="hand2"
         ).pack(side=TOP, fill=X)
 
-        btn_sales = Button(
+        button_sales = Button(
             left_menu_frame, text="Sales", command=self.sales,
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
@@ -130,7 +130,7 @@ class IMS:
             bg="white", bd=3, cursor="hand2"
         ).pack(side=TOP, fill=X)
 
-        btn_exit = Button(
+        button_exit = Button(
             left_menu_frame, text="Exit",
             image=self.icon_side, compound=LEFT,
             padx=5, anchor="w",
@@ -140,49 +140,48 @@ class IMS:
         ).pack(side=TOP, fill=X)
 
     def content(self, root):
-        self.lbl_employee = Label(
+        self.label_employee = Label(
             self.root, text="Total Employee\n{ 0 }",
             bd=5, relief=RIDGE, bg="#33bbf9",
             fg="white", font=("goudy old style", 20, "bold")
         )
-        self.lbl_employee.place(x=300, y=120, height=150, width=300)
+        self.label_employee.place(x=300, y=120, height=150, width=300)
 
-        self.lbl_supplier = Label(
+        self.label_supplier = Label(
             self.root, text="Total Supplier\n{ 0 }",
             bd=5, relief=RIDGE, bg="#ff5722",
             fg="white", font=("goudy old style", 20, "bold")
         )
-        self.lbl_supplier.place(x=650, y=120, height=150, width=300)
+        self.label_supplier.place(x=650, y=120, height=150, width=300)
 
-        self.lbl_category = Label(
+        self.label_category = Label(
             self.root, text="Total Category\n{ 0 }",
             bd=5, relief=RIDGE, bg="#009688",
             fg="white", font=("goudy old style", 20, "bold")
         )
-        self.lbl_category.place(x=1000, y=120, height=150, width=300)
+        self.label_category.place(x=1000, y=120, height=150, width=300)
 
-        self.lbl_product = Label(
+        self.label_product = Label(
             self.root, text="Total Product\n{ 0 }",
             bd=5, relief=RIDGE, bg="#607d8b",
             fg="white", font=("goudy old style", 20, "bold")
         )
-        self.lbl_product.place(x=300, y=300, height=150, width=300)
+        self.label_product.place(x=300, y=300, height=150, width=300)
 
-        self.lbl_sales = Label(
+        self.label_sales = Label(
             self.root, text="Total Sales\n{ 0 }",
             bd=5, relief=RIDGE, bg="#ffc107",
             fg="white", font=("goudy old style", 20, "bold")
         )
-        self.lbl_sales.place(x=650, y=300, height=150, width=300)
+        self.label_sales.place(x=650, y=300, height=150, width=300)
 
     def footer(self, root):
-        lbl_footer = Label(
+        label_footer = Label(
             self.root,
             text="IMS-Inventory Management System",
             font=("times new roman", 12),
             bg="#4d636d", fg="white"
         ).pack(side=BOTTOM, fill=X)
-
         self.update_content()
     
     # -------------- functions ----------------
@@ -212,30 +211,30 @@ class IMS:
         try:
             cur.execute("select * from product")
             product = cur.fetchall()
-            self.lbl_product.config(text=f"Total Product\n[ {len(product)} ]")
+            self.label_product.config(text=f"Total Product\n[ {len(product)} ]")
 
             cur.execute("select * from category")
             category = cur.fetchall()
-            self.lbl_category.config(text=f"Total Category\n[ {len(category)} ]")
+            self.label_category.config(text=f"Total Category\n[ {len(category)} ]")
 
             cur.execute("select * from employee")
             employee = cur.fetchall()
-            self.lbl_employee.config(text=f"Total Employee\n[ {len(employee)} ]")
+            self.label_employee.config(text=f"Total Employee\n[ {len(employee)} ]")
 
             cur.execute("select * from supplier")
             supplier = cur.fetchall()
-            self.lbl_supplier.config(text=f"Total Supplier\n[ {len(supplier)} ]")
+            self.label_supplier.config(text=f"Total Supplier\n[ {len(supplier)} ]")
 
             bill = len(os.listdir(BILL_DIR))
-            self.lbl_sales.config(text=f"Total Sales\n[ {bill} ]")
+            self.label_sales.config(text=f"Total Sales\n[ {bill} ]")
 
             time_str = time.strftime("%I:%M:%S")
             date_str = time.strftime("%d-%m-%Y")
-            self.lbl_clock.config(
+            self.label_clock.config(
                 text=f"Welcome to Inventory Management System\t\t Date: {date_str}\t\t Time: {time_str}"
             )
 
-            self.lbl_clock.after(200, self.update_content)
+            self.label_clock.after(200, self.update_content)
 
         except Exception as ex:
             messagebox.showerror("Error", f"Error due to : {str(ex)}", parent=self.root)

@@ -34,7 +34,7 @@ class salesClass:
     # ----------------- appearance functions -----------------
 
     def setup_title(self):
-        lbl_title = Label(
+        label_title = Label(
             self.root,
             text="View Customer Bills",
             font=("goudy old style", 30),
@@ -45,19 +45,19 @@ class salesClass:
         ).pack(side=TOP, fill=X, padx=10, pady=20)
 
     def setup_invoice_search(self):
-        lbl_invoice = Label(self.root, text="Invoice No.", font=("times new roman", 15), bg="white")
-        lbl_invoice.place(x=50, y=100)
+        label_invoice = Label(self.root, text="Invoice No.", font=("times new roman", 15), bg="white")
+        label_invoice.place(x=50, y=100)
 
         txt_invoice = Entry(self.root, textvariable=self.var_invoice, font=("times new roman", 15), bg="lightyellow")
         txt_invoice.place(x=160, y=100, width=180, height=28)
 
-        btn_search = Button(
+        button_search = Button(
             self.root, text="Search", command=self.search,
             font=("times new roman", 15, "bold"),
             bg="#2196f3", fg="white", cursor="hand2"
         ).place(x=360, y=100, width=120, height=28)
 
-        btn_clear = Button(
+        button_clear = Button(
             self.root, text="Clear", command=self.clear,
             font=("times new roman", 15, "bold"),
             bg="lightgray", cursor="hand2"
@@ -81,7 +81,7 @@ class salesClass:
         bill_Frame = Frame(self.root, bd=3, relief=RIDGE)
         bill_Frame.place(x=280, y=140, width=410, height=330)
 
-        lbl_title2 = Label(
+        label_title2 = Label(
             bill_Frame, text="Customer Bill Area",
             font=("goudy old style", 20), bg="orange"
         ).pack(side=TOP, fill=X)
@@ -98,8 +98,8 @@ class salesClass:
         self.bill_photo = self.bill_photo.resize((450, 300))
         self.bill_photo = ImageTk.PhotoImage(self.bill_photo)
 
-        lbl_image = Label(self.root, image=self.bill_photo, bd=0)
-        lbl_image.place(x=700, y=110)
+        label_image = Label(self.root, image=self.bill_photo, bd=0)
+        label_image.place(x=700, y=110)
     # -------------------------------------------------------
     def show(self):
         del self.bill_list[:]
