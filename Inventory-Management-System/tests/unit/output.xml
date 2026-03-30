@@ -1,494 +1,494 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-03-30T19:59:14.418924" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-03-30T21:55:12.322406" rpa="false" schemaversion="5">
 <suite id="s1" name="Test System" source="C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\test_system.robot">
 <test id="s1-t1" name="Create Employee" line="6">
 <kw name="Connect DB" owner="db_keywords">
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.474805" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2026-03-30T19:59:14.474898" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-03-30T19:59:14.477913" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
+<msg time="2026-03-30T21:55:12.406113" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-03-30T21:55:12.406203" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-03-30T21:55:12.410036" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
 <arg>sqlite3</arg>
 <arg>database=${DB_PATH}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.474590" elapsed="0.003763"/>
+<status status="PASS" start="2026-03-30T21:55:12.405894" elapsed="0.004748"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.473990" elapsed="0.004485"/>
+<status status="PASS" start="2026-03-30T21:55:12.405248" elapsed="0.005535"/>
 </kw>
 <kw name="Create Employee Table" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.479054" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.479442" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.411430" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.411801" level="INFO">Commit the transaction</msg>
 <arg>CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.478953" elapsed="0.000539"/>
+<status status="PASS" start="2026-03-30T21:55:12.411329" elapsed="0.000521"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.478730" elapsed="0.000810"/>
+<status status="PASS" start="2026-03-30T21:55:12.411076" elapsed="0.000820"/>
 </kw>
 <kw name="Reset Tables" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.479947" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.481264" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.412350" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.413109" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.479878" elapsed="0.008087"/>
+<status status="PASS" start="2026-03-30T21:55:12.412240" elapsed="0.009856"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.488303" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.489001" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.422433" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.423553" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM product</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.488140" elapsed="0.007727"/>
+<status status="PASS" start="2026-03-30T21:55:12.422286" elapsed="0.008751"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.479722" elapsed="0.016260"/>
+<status status="PASS" start="2026-03-30T21:55:12.412046" elapsed="0.019120"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.496430" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO employee(eid,name,email,pass,utype) VALUES (1,'Juan','juan@test.com','1234','Admin')&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.497123" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.431559" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO employee(eid,name,email,pass,utype) VALUES (1,'Juan','juan@test.com','1234','Admin')&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.432377" level="INFO">Commit the transaction</msg>
 <arg>INSERT INTO employee(eid,name,email,pass,utype) VALUES (1,'Juan','juan@test.com','1234','Admin')</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.496251" elapsed="0.007490"/>
+<status status="PASS" start="2026-03-30T21:55:12.431408" elapsed="0.008727"/>
 </kw>
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.504169" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM employee WHERE eid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.504349" level="INFO">Commit the transaction</msg>
-<msg time="2026-03-30T19:59:14.504418" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;eid&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;email&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;gender&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;contact&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;dob&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;doj&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;pass&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;utype&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;address&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;salary&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Juan&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;juan@test.com&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1234&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Admin&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-03-30T19:59:14.504571" level="INFO">${result} = [(1, 'Juan', 'juan@test.com', None, None, None, None, '1234', 'Admin', None, None)]</msg>
+<msg time="2026-03-30T21:55:12.440698" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM employee WHERE eid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.440939" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.441023" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;eid&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;email&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;gender&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;contact&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;dob&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;doj&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;pass&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;utype&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;address&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;salary&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Juan&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;juan@test.com&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1234&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Admin&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;None&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-03-30T21:55:12.441171" level="INFO">${result} = [(1, 'Juan', 'juan@test.com', None, None, None, None, '1234', 'Admin', None, None)]</msg>
 <var>${result}</var>
 <arg>SELECT * FROM employee WHERE eid=1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.504013" elapsed="0.000578"/>
+<status status="PASS" start="2026-03-30T21:55:12.440469" elapsed="0.000722"/>
 </kw>
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-03-30T19:59:14.505287" level="INFO">Length is 1.</msg>
+<msg time="2026-03-30T21:55:12.442011" level="INFO">Length is 1.</msg>
 <arg>${result}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.504783" elapsed="0.000543"/>
+<status status="PASS" start="2026-03-30T21:55:12.441360" elapsed="0.000691"/>
 </kw>
 <kw name="Disconnect DB" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.505715" elapsed="0.000164"/>
+<status status="PASS" start="2026-03-30T21:55:12.442459" elapsed="0.000176"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.505524" elapsed="0.000400"/>
+<status status="PASS" start="2026-03-30T21:55:12.442265" elapsed="0.000416"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.473243" elapsed="0.032815"/>
+<status status="PASS" start="2026-03-30T21:55:12.404690" elapsed="0.038141"/>
 </test>
 <test id="s1-t2" name="Update Employee" line="19">
 <kw name="Connect DB" owner="db_keywords">
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.506930" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2026-03-30T19:59:14.507002" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-03-30T19:59:14.507124" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
+<msg time="2026-03-30T21:55:12.444032" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-03-30T21:55:12.444137" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-03-30T21:55:12.444266" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
 <arg>sqlite3</arg>
 <arg>database=${DB_PATH}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.506772" elapsed="0.000634"/>
+<status status="PASS" start="2026-03-30T21:55:12.443843" elapsed="0.000782"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.506618" elapsed="0.000843"/>
+<status status="PASS" start="2026-03-30T21:55:12.443625" elapsed="0.001065"/>
 </kw>
 <kw name="Create Employee Table" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.507883" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.508140" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.445534" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.446101" level="INFO">Commit the transaction</msg>
 <arg>CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.507805" elapsed="0.000381"/>
+<status status="PASS" start="2026-03-30T21:55:12.445332" elapsed="0.000870"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.507634" elapsed="0.000595"/>
+<status status="PASS" start="2026-03-30T21:55:12.444934" elapsed="0.001365"/>
 </kw>
 <kw name="Reset Tables" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.508598" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.509243" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.447184" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.448221" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.508524" elapsed="0.007420"/>
+<status status="PASS" start="2026-03-30T21:55:12.446880" elapsed="0.008549"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.516263" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.516955" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.455837" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.456479" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM product</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.516124" elapsed="0.007521"/>
+<status status="PASS" start="2026-03-30T21:55:12.455630" elapsed="0.007976"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.508382" elapsed="0.015363"/>
+<status status="PASS" start="2026-03-30T21:55:12.446603" elapsed="0.017106"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.524107" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO employee(eid,name) VALUES (1,'Juan')&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.524853" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.464095" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO employee(eid,name) VALUES (1,'Juan')&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.464820" level="INFO">Commit the transaction</msg>
 <arg>INSERT INTO employee(eid,name) VALUES (1,'Juan')</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.523958" elapsed="0.007759"/>
+<status status="PASS" start="2026-03-30T21:55:12.463943" elapsed="0.007821"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.532154" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;UPDATE employee SET name='Pedro' WHERE eid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.532894" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.472314" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;UPDATE employee SET name='Pedro' WHERE eid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.473082" level="INFO">Commit the transaction</msg>
 <arg>UPDATE employee SET name='Pedro' WHERE eid=1</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.531985" elapsed="0.007576"/>
+<status status="PASS" start="2026-03-30T21:55:12.472124" elapsed="0.008050"/>
 </kw>
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.540121" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT name FROM employee WHERE eid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.540319" level="INFO">Commit the transaction</msg>
-<msg time="2026-03-30T19:59:14.540383" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Pedro&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-03-30T19:59:14.540535" level="INFO">${result} = [('Pedro',)]</msg>
+<msg time="2026-03-30T21:55:12.480608" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT name FROM employee WHERE eid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.480773" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.480824" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Pedro&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-03-30T21:55:12.480960" level="INFO">${result} = [('Pedro',)]</msg>
 <var>${result}</var>
 <arg>SELECT name FROM employee WHERE eid=1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.539904" elapsed="0.000663"/>
+<status status="PASS" start="2026-03-30T21:55:12.480455" elapsed="0.000529"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result[0][0]}</arg>
 <arg>Pedro</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.540743" elapsed="0.000582"/>
+<status status="PASS" start="2026-03-30T21:55:12.481244" elapsed="0.000960"/>
 </kw>
 <kw name="Disconnect DB" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.541828" elapsed="0.000215"/>
+<status status="PASS" start="2026-03-30T21:55:12.482787" elapsed="0.000193"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.541575" elapsed="0.000512"/>
+<status status="PASS" start="2026-03-30T21:55:12.482580" elapsed="0.000445"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.506340" elapsed="0.035892"/>
+<status status="PASS" start="2026-03-30T21:55:12.443228" elapsed="0.039948"/>
 </test>
 <test id="s1-t3" name="Delete Employee" line="33">
 <kw name="Connect DB" owner="db_keywords">
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.543187" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2026-03-30T19:59:14.543274" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-03-30T19:59:14.543391" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
+<msg time="2026-03-30T21:55:12.484165" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-03-30T21:55:12.484242" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-03-30T21:55:12.484357" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
 <arg>sqlite3</arg>
 <arg>database=${DB_PATH}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.543021" elapsed="0.000660"/>
+<status status="PASS" start="2026-03-30T21:55:12.484009" elapsed="0.000637"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.542849" elapsed="0.000890"/>
+<status status="PASS" start="2026-03-30T21:55:12.483820" elapsed="0.000878"/>
 </kw>
 <kw name="Create Employee Table" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.544284" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.544569" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.485078" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.485341" level="INFO">Commit the transaction</msg>
 <arg>CREATE TABLE IF NOT EXISTS employee (eid INTEGER PRIMARY KEY, name TEXT, email TEXT, gender TEXT, contact TEXT, dob TEXT, doj TEXT, pass TEXT, utype TEXT, address TEXT, salary TEXT)</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.544180" elapsed="0.000433"/>
+<status status="PASS" start="2026-03-30T21:55:12.485007" elapsed="0.000379"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.543955" elapsed="0.000699"/>
+<status status="PASS" start="2026-03-30T21:55:12.484862" elapsed="0.000569"/>
 </kw>
 <kw name="Reset Tables" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.545127" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.545993" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.485816" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.486590" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.545036" elapsed="0.007629"/>
+<status status="PASS" start="2026-03-30T21:55:12.485747" elapsed="0.007745"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.553045" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.553753" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.493835" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.494516" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM product</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.552861" elapsed="0.007476"/>
+<status status="PASS" start="2026-03-30T21:55:12.493695" elapsed="0.007682"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.544839" elapsed="0.015603"/>
+<status status="PASS" start="2026-03-30T21:55:12.485584" elapsed="0.015894"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.560791" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO employee(eid,name) VALUES (1,'Juan')&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.561496" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.501820" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO employee(eid,name) VALUES (1,'Juan')&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.502472" level="INFO">Commit the transaction</msg>
 <arg>INSERT INTO employee(eid,name) VALUES (1,'Juan')</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.560659" elapsed="0.007507"/>
+<status status="PASS" start="2026-03-30T21:55:12.501691" elapsed="0.007685"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.568562" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee WHERE eid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.569159" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.509773" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee WHERE eid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.510508" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee WHERE eid=1</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.568427" elapsed="0.007550"/>
+<status status="PASS" start="2026-03-30T21:55:12.509630" elapsed="0.007630"/>
 </kw>
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.576433" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM employee WHERE eid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.576603" level="INFO">Commit the transaction</msg>
-<msg time="2026-03-30T19:59:14.576652" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 0 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;eid&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;email&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;gender&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;contact&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;dob&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;doj&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;pass&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;utype&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;address&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;salary&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-03-30T19:59:14.576758" level="INFO">${result} = []</msg>
+<msg time="2026-03-30T21:55:12.517784" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM employee WHERE eid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.518027" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.518077" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 0 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;eid&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;email&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;gender&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;contact&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;dob&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;doj&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;pass&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;utype&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;address&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;salary&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-03-30T21:55:12.518234" level="INFO">${result} = []</msg>
 <var>${result}</var>
 <arg>SELECT * FROM employee WHERE eid=1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.576285" elapsed="0.000492"/>
+<status status="PASS" start="2026-03-30T21:55:12.517598" elapsed="0.000657"/>
 </kw>
 <kw name="Should Be Empty" owner="BuiltIn">
-<msg time="2026-03-30T19:59:14.577261" level="INFO">Length is 0.</msg>
+<msg time="2026-03-30T21:55:12.518741" level="INFO">Length is 0.</msg>
 <arg>${result}</arg>
 <doc>Verifies that the given item is empty.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.576951" elapsed="0.000348"/>
+<status status="PASS" start="2026-03-30T21:55:12.518447" elapsed="0.000328"/>
 </kw>
 <kw name="Disconnect DB" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.577738" elapsed="0.000177"/>
+<status status="PASS" start="2026-03-30T21:55:12.519149" elapsed="0.000178"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.577540" elapsed="0.000435"/>
+<status status="PASS" start="2026-03-30T21:55:12.518961" elapsed="0.000423"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.542569" elapsed="0.035545"/>
+<status status="PASS" start="2026-03-30T21:55:12.483501" elapsed="0.036017"/>
 </test>
 <test id="s1-t4" name="Create Product" line="47">
 <kw name="Connect DB" owner="db_keywords">
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.579182" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2026-03-30T19:59:14.579265" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-03-30T19:59:14.579383" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
+<msg time="2026-03-30T21:55:12.520549" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-03-30T21:55:12.520743" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-03-30T21:55:12.520907" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
 <arg>sqlite3</arg>
 <arg>database=${DB_PATH}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.579009" elapsed="0.000683"/>
+<status status="PASS" start="2026-03-30T21:55:12.520357" elapsed="0.000952"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.578811" elapsed="0.000942"/>
+<status status="PASS" start="2026-03-30T21:55:12.520137" elapsed="0.001244"/>
 </kw>
 <kw name="Create Product Table" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.580194" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.580468" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.521996" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.522275" level="INFO">Commit the transaction</msg>
 <arg>CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.580107" elapsed="0.000413"/>
+<status status="PASS" start="2026-03-30T21:55:12.521892" elapsed="0.000434"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.579938" elapsed="0.000629"/>
+<status status="PASS" start="2026-03-30T21:55:12.521643" elapsed="0.000729"/>
 </kw>
 <kw name="Reset Tables" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.581082" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.581878" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.522775" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.523488" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.580989" elapsed="0.007738"/>
+<status status="PASS" start="2026-03-30T21:55:12.522708" elapsed="0.007536"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.589108" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.589744" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.530547" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.531103" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM product</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.588941" elapsed="0.007430"/>
+<status status="PASS" start="2026-03-30T21:55:12.530409" elapsed="0.007183"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.580757" elapsed="0.015714"/>
+<status status="PASS" start="2026-03-30T21:55:12.522542" elapsed="0.015164"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.596888" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,10,'Active')&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.597764" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.538109" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,10,'Active')&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.538783" level="INFO">Commit the transaction</msg>
 <arg>INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,10,'Active')</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.596730" elapsed="0.007841"/>
+<status status="PASS" start="2026-03-30T21:55:12.537967" elapsed="0.007713"/>
 </kw>
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.605028" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM product WHERE pid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.605216" level="INFO">Commit the transaction</msg>
-<msg time="2026-03-30T19:59:14.605267" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;pid&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;price&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;qty&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Laptop&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1000.0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;10&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Active&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-03-30T19:59:14.605379" level="INFO">${result} = [(1, 'Laptop', 1000.0, 10, 'Active')]</msg>
+<msg time="2026-03-30T21:55:12.546165" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM product WHERE pid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.546361" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.546423" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;pid&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;price&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;qty&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Laptop&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1000.0&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;10&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Active&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-03-30T21:55:12.546549" level="INFO">${result} = [(1, 'Laptop', 1000.0, 10, 'Active')]</msg>
 <var>${result}</var>
 <arg>SELECT * FROM product WHERE pid=1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.604850" elapsed="0.000548"/>
+<status status="PASS" start="2026-03-30T21:55:12.545999" elapsed="0.000575"/>
 </kw>
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-03-30T19:59:14.605885" level="INFO">Length is 1.</msg>
+<msg time="2026-03-30T21:55:12.547154" level="INFO">Length is 1.</msg>
 <arg>${result}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.605584" elapsed="0.000345"/>
+<status status="PASS" start="2026-03-30T21:55:12.546776" elapsed="0.000433"/>
 </kw>
 <kw name="Disconnect DB" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.606393" elapsed="0.000189"/>
+<status status="PASS" start="2026-03-30T21:55:12.547716" elapsed="0.000221"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.606193" elapsed="0.000434"/>
+<status status="PASS" start="2026-03-30T21:55:12.547461" elapsed="0.000524"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.578459" elapsed="0.028310"/>
+<status status="PASS" start="2026-03-30T21:55:12.519822" elapsed="0.028341"/>
 </test>
 <test id="s1-t5" name="Update Product Stock" line="60">
 <kw name="Connect DB" owner="db_keywords">
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.607741" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2026-03-30T19:59:14.607831" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-03-30T19:59:14.607952" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
+<msg time="2026-03-30T21:55:12.549546" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-03-30T21:55:12.549659" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-03-30T21:55:12.549779" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
 <arg>sqlite3</arg>
 <arg>database=${DB_PATH}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.607581" elapsed="0.000696"/>
+<status status="PASS" start="2026-03-30T21:55:12.549369" elapsed="0.000777"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.607386" elapsed="0.000951"/>
+<status status="PASS" start="2026-03-30T21:55:12.549156" elapsed="0.001052"/>
 </kw>
 <kw name="Create Product Table" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.608764" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.609046" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.550630" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.550901" level="INFO">Commit the transaction</msg>
 <arg>CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.608684" elapsed="0.000415"/>
+<status status="PASS" start="2026-03-30T21:55:12.550552" elapsed="0.000400"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.608514" elapsed="0.000635"/>
+<status status="PASS" start="2026-03-30T21:55:12.550386" elapsed="0.000609"/>
 </kw>
 <kw name="Reset Tables" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.609597" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.610369" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.551366" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.552086" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.609519" elapsed="0.007696"/>
+<status status="PASS" start="2026-03-30T21:55:12.551299" elapsed="0.007730"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.617508" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.618121" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.559323" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.560022" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM product</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.617378" elapsed="0.007743"/>
+<status status="PASS" start="2026-03-30T21:55:12.559197" elapsed="0.007639"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.609345" elapsed="0.015883"/>
+<status status="PASS" start="2026-03-30T21:55:12.551146" elapsed="0.015818"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.625587" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,10,'Active')&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.626353" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.567363" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,10,'Active')&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.568282" level="INFO">Commit the transaction</msg>
 <arg>INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,10,'Active')</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.625454" elapsed="0.007950"/>
+<status status="PASS" start="2026-03-30T21:55:12.567212" elapsed="0.007964"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.633863" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;UPDATE product SET qty=5 WHERE pid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.634639" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.575640" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;UPDATE product SET qty=5 WHERE pid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.576493" level="INFO">Commit the transaction</msg>
 <arg>UPDATE product SET qty=5 WHERE pid=1</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.633701" elapsed="0.007789"/>
+<status status="PASS" start="2026-03-30T21:55:12.575461" elapsed="0.008029"/>
 </kw>
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.641929" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT qty FROM product WHERE pid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.642117" level="INFO">Commit the transaction</msg>
-<msg time="2026-03-30T19:59:14.642163" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;qty&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-03-30T19:59:14.642260" level="INFO">${result} = [(5,)]</msg>
+<msg time="2026-03-30T21:55:12.584132" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT qty FROM product WHERE pid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.584332" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.584373" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;qty&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;5&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-03-30T21:55:12.584483" level="INFO">${result} = [(5,)]</msg>
 <var>${result}</var>
 <arg>SELECT qty FROM product WHERE pid=1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.641782" elapsed="0.000498"/>
+<status status="PASS" start="2026-03-30T21:55:12.583940" elapsed="0.000562"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-03-30T19:59:14.643192" level="INFO">Argument types are:
+<msg time="2026-03-30T21:55:12.585176" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${result[0][0]}</arg>
 <arg>5</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.642532" elapsed="0.000723"/>
+<status status="PASS" start="2026-03-30T21:55:12.584679" elapsed="0.000549"/>
 </kw>
 <kw name="Disconnect DB" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.643664" elapsed="0.000177"/>
+<status status="PASS" start="2026-03-30T21:55:12.585581" elapsed="0.000159"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.643483" elapsed="0.000401"/>
+<status status="PASS" start="2026-03-30T21:55:12.585412" elapsed="0.000372"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.607076" elapsed="0.036943"/>
+<status status="PASS" start="2026-03-30T21:55:12.548668" elapsed="0.037250"/>
 </test>
 <test id="s1-t6" name="Product Becomes Inactive" line="74">
 <kw name="Connect DB" owner="db_keywords">
 <kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.644940" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2026-03-30T19:59:14.645028" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2026-03-30T19:59:14.645143" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
+<msg time="2026-03-30T21:55:12.586957" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2026-03-30T21:55:12.587047" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2026-03-30T21:55:12.587213" level="INFO">Connect to DB using : sqlite3.connect(database='C:\Users\afern\Documents\Ingeniería del Software\3º de carrera\Evolución y mantenimiento del Software\Project\Inventory-Management-System\tests\unit\resources/../ims.db')</msg>
 <arg>sqlite3</arg>
 <arg>database=${DB_PATH}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.644760" elapsed="0.000691"/>
+<status status="PASS" start="2026-03-30T21:55:12.586759" elapsed="0.000835"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.644594" elapsed="0.000910"/>
+<status status="PASS" start="2026-03-30T21:55:12.586532" elapsed="0.001128"/>
 </kw>
 <kw name="Create Product Table" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.645895" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.646150" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.588178" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.588516" level="INFO">Commit the transaction</msg>
 <arg>CREATE TABLE IF NOT EXISTS product (pid INTEGER PRIMARY KEY, name TEXT, price REAL, qty INTEGER, status TEXT)</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.645807" elapsed="0.000388"/>
+<status status="PASS" start="2026-03-30T21:55:12.588078" elapsed="0.000502"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.645660" elapsed="0.000604"/>
+<status status="PASS" start="2026-03-30T21:55:12.587863" elapsed="0.000797"/>
 </kw>
 <kw name="Reset Tables" owner="db_keywords">
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.646635" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.647507" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.589185" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM employee&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.589964" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM employee</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.646566" elapsed="0.007846"/>
+<status status="PASS" start="2026-03-30T21:55:12.589075" elapsed="0.007706"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.654756" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.655552" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.597152" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DELETE FROM product&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.597917" level="INFO">Commit the transaction</msg>
 <arg>DELETE FROM product</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.654589" elapsed="0.007700"/>
+<status status="PASS" start="2026-03-30T21:55:12.596988" elapsed="0.007866"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.646421" elapsed="0.015985"/>
+<status status="PASS" start="2026-03-30T21:55:12.588866" elapsed="0.016124"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.662814" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,1,'Active')&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.663470" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.605405" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,1,'Active')&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.606132" level="INFO">Commit the transaction</msg>
 <arg>INSERT INTO product(pid,name,price,qty,status) VALUES (1,'Laptop',1000,1,'Active')</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.662672" elapsed="0.007705"/>
+<status status="PASS" start="2026-03-30T21:55:12.605231" elapsed="0.007519"/>
 </kw>
 <kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.670811" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;UPDATE product SET qty=0, status='Inactive' WHERE pid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.671574" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.613146" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;UPDATE product SET qty=0, status='Inactive' WHERE pid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.613778" level="INFO">Commit the transaction</msg>
 <arg>UPDATE product SET qty=0, status='Inactive' WHERE pid=1</arg>
 <doc>Executes the ``sql_string`` - as a single SQL command (default) or as separate statements.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.670661" elapsed="0.007861"/>
+<status status="PASS" start="2026-03-30T21:55:12.613000" elapsed="0.007929"/>
 </kw>
 <kw name="Query" owner="DatabaseLibrary">
-<msg time="2026-03-30T19:59:14.678956" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT status FROM product WHERE pid=1&lt;/code&gt;</msg>
-<msg time="2026-03-30T19:59:14.679127" level="INFO">Commit the transaction</msg>
-<msg time="2026-03-30T19:59:14.679172" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Inactive&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2026-03-30T19:59:14.679270" level="INFO">${result} = [('Inactive',)]</msg>
+<msg time="2026-03-30T21:55:12.621345" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT status FROM product WHERE pid=1&lt;/code&gt;</msg>
+<msg time="2026-03-30T21:55:12.621550" level="INFO">Commit the transaction</msg>
+<msg time="2026-03-30T21:55:12.621617" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto; max-height: 500px; overflow-y: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="position: sticky; top: 0; color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="position: sticky; top: 0; background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;status&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Inactive&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2026-03-30T21:55:12.621730" level="INFO">${result} = [('Inactive',)]</msg>
 <var>${result}</var>
 <arg>SELECT status FROM product WHERE pid=1</arg>
 <doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
 The type of row values depends on the database module -
 usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.678798" elapsed="0.000492"/>
+<status status="PASS" start="2026-03-30T21:55:12.621205" elapsed="0.000548"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${result[0][0]}</arg>
 <arg>Inactive</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.679518" elapsed="0.000603"/>
+<status status="PASS" start="2026-03-30T21:55:12.621928" elapsed="0.000499"/>
 </kw>
 <kw name="Disconnect DB" owner="db_keywords">
 <kw name="Disconnect From Database" owner="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<status status="PASS" start="2026-03-30T19:59:14.680519" elapsed="0.000172"/>
+<status status="PASS" start="2026-03-30T21:55:12.622796" elapsed="0.000158"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.680327" elapsed="0.000409"/>
+<status status="PASS" start="2026-03-30T21:55:12.622624" elapsed="0.000375"/>
 </kw>
-<status status="PASS" start="2026-03-30T19:59:14.644325" elapsed="0.036557"/>
+<status status="PASS" start="2026-03-30T21:55:12.586212" elapsed="0.036919"/>
 </test>
-<status status="PASS" start="2026-03-30T19:59:14.420439" elapsed="0.260960"/>
+<status status="PASS" start="2026-03-30T21:55:12.324167" elapsed="0.299397"/>
 </suite>
 <statistics>
 <total>
