@@ -49,9 +49,9 @@ class loginClass:
                 conn.close()
                 self.user_role = row[8]  
                 
-            root = Tk()
-            ModuleSelector(root, self.user_role)
-            root.mainloop()
+                root = Tk()
+                ModuleSelector(root, self.user_role)
+                root.mainloop()
             
     
     def clear(self):
