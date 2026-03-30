@@ -20,8 +20,9 @@ os.makedirs(BILL_DIR, exist_ok=True)
 # ---------------------------------------------------
 
 class IMS:
-    def __init__(self, root):
+    def __init__(self, root, user_role):
         self.root = root
+        self.user_role = user_role
         self.root.geometry("1350x700+110+80")
         self.root.resizable(False, False)
         self.root.config(bg="white")
@@ -186,8 +187,12 @@ class IMS:
     
     # -------------- functions ----------------
     def employee(self):
-        self.new_win = Toplevel(self.root)
-        self.new_obj = employeeClass(self.new_win)
+        if self.user_role != "Admin":
+            messagebox.showerror("Access Denied", "You do not have permission to access the Employee section.", parent=self.root)
+            return
+        else:
+            self.new_win = Toplevel(self.root)
+            self.new_obj = employeeClass(self.new_win)
 
     def supplier(self):
         self.new_win = Toplevel(self.root)
