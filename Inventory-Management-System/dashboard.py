@@ -60,7 +60,7 @@ class IMS:
         button_logout = Button(
             self.root, text="Logout",
             font=("times new roman", 15, "bold"),
-            bg="yellow", cursor="hand2"
+            bg="yellow", cursor="hand2", command=self.logout
         ).place(x=1150, y=10, height=50, width=150)
 
     def clock(self, root):
@@ -250,6 +250,15 @@ class IMS:
         con = sqlite3.connect(database=r'ims.db')
         cur = con.cursor()
         return cur, con
+
+    def logout(self):
+        confirm = messagebox.askyesno("Logout", "Do you want to logout?", parent=self.root)
+        if confirm:
+            self.root.destroy()
+            from login import loginClass  
+            root = Tk()
+            loginClass(root)
+            root.mainloop()
 
 if __name__ == "__main__":
     root = Tk()

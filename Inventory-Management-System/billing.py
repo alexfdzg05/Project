@@ -19,7 +19,7 @@ class billClass:
         self.icon_title = PhotoImage(file="Inventory-Management-System/images/logo1.png")
         title=Label(self.root,text="Inventory Management System",image=self.icon_title,compound=LEFT,font=("times new roman",40,"bold"),bg="#010c48",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
 
-        button_logout=Button(self.root,text="Logout",font=("times new roman",15,"bold"),bg="yellow",cursor="hand2").place(x=1150,y=10,height=50,width=150)
+        button_logout=Button(self.root,text="Logout",font=("times new roman",15,"bold"),bg="yellow",cursor="hand2", command=self.logout).place(x=1150,y=10,height=50,width=150)
 
         self.label_clock=Label(self.root,text="Welcome to Inventory Management System\t\t Date: DD:MM:YYYY\t\t Time: HH:MM:SS",font=("times new roman",15),bg="#4d636d",fg="white")
         self.label_clock.place(x=0,y=70,relwidth=1,height=30)
@@ -424,7 +424,16 @@ class billClass:
         con=sqlite3.connect(database=r'ims.db')
         cur=con.cursor()
         return cur, con
-        
+    
+    def logout(self):
+        confirm = messagebox.askyesno("Logout", "Do you want to logout?", parent=self.root)
+        if confirm:
+            self.root.destroy()
+            from login import loginClass  
+            root = Tk()
+            loginClass(root)
+            root.mainloop()
+            
 
 if __name__=="__main__":
     root=Tk()

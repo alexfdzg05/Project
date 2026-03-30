@@ -2,6 +2,7 @@ from dashboard import IMS
 from tkinter import*
 from PIL import Image,ImageTk
 from tkinter import ttk,messagebox
+from module_selector import ModuleSelector
 import sqlite3
 
 class loginClass:
@@ -47,10 +48,10 @@ class loginClass:
                 self.root.destroy()
                 conn.close()
                 self.user_role = row[8]  
-                dashboard_root = Tk()
-                dashboard_root.title("Inventory Management System")
-                IMS(dashboard_root, self.user_role)
-                dashboard_root.mainloop()
+                
+            root = Tk()
+            ModuleSelector(root, self.user_role)
+            root.mainloop()
             
     
     def clear(self):
